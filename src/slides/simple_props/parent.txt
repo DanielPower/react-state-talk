@@ -1,11 +1,9 @@
 const Parent = () => {
   const [count, setCount] = useState(1);
   return (
-    <>
-      <Button onClick={
-        () => setCount(count + 1)
-      }>{count}</Button>
-      <Child />
-    </>
+    <Button onClick={
+      () => setCount(count + 1)
+    }>{count}</Button>
+    <Child />
   );
 };

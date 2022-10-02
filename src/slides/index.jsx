@@ -1,16 +1,9 @@
 /* eslint-disable react/jsx-key */
-import Title from "./title/Title";
-import SimpleProps from "./simple_props/SimpleProps";
-import { Slide } from "spectacle";
-import React from "react";
-import WhyReactRenders from "./why_react_renders/WhyReactRenders";
+import dependencyInjection from "./dependency_injection";
+import simpleProps from "./simple_props";
+import title from "./title";
+import whyReactRenders from "./why_react_renders";
 
-const slides = React.Children.toArray(
-  [Title, WhyReactRenders, SimpleProps].map((Component) => (
-    <Slide>
-      <Component />
-    </Slide>
-  ))
-);
+const slides = [title, whyReactRenders, simpleProps, dependencyInjection];
 
 export default slides;

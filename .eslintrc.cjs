@@ -19,5 +19,6 @@ module.exports = {
     semi: ["error", "always"],
     "react/react-in-jsx-scope": 0,
     "react/prop-types": 0,
+    "react/jsx-key": 0,
   },
 };
