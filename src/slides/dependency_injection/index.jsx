@@ -1,7 +1,7 @@
 import { simpleSlide } from "../../presentation";
 
 const dependencyInjection = simpleSlide([
-  <h1>DependencyInjection</h1>,
+  <h1>Context Sharing / Dependency Injection</h1>,
   "React useContext",
 ]);
 

@@ -116,3 +116,10 @@ export const simpleSlide = (steps) => ({
     return React.Children.toArray(steps.slice(0, stepId + 1));
   },
 });
+
+export const list = (array, style = "disc") =>
+  array.map((value, index) => (
+    <li style={{ listStyleType: style }} value={index + 1}>
+      {value}
+    </li>
+  ));
