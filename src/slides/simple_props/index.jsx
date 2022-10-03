@@ -35,18 +35,22 @@ const MemoChild = React.memo(Child);
 
 const simpleProps = {
   steps: 2,
-  component: () => {
-    const { child_code, memoize, highlightRanges } = useSteppedValue(0, [
-      {
-        memoize: false,
-        child_code: child_code_1,
-      },
-      {
-        memoize: true,
-        child_code: child_code_2,
-        highlightRanges: [[1, 1]],
-      },
-    ]);
+  component: ({ stepId }) => {
+    const { child_code, memoize, highlightRanges } = useSteppedValue(
+      stepId,
+      0,
+      [
+        {
+          memoize: false,
+          child_code: child_code_1,
+        },
+        {
+          memoize: true,
+          child_code: child_code_2,
+          highlightRanges: [[1, 1]],
+        },
+      ]
+    );
     return (
       <>
         <h1>Why React Renders - Demo</h1>

@@ -7,6 +7,7 @@ export const usePresentationStore = createStore({
       slideId: 0,
       stepId: 0,
       slides: [],
+      presenterMode: false,
     },
     actions: {
       loadPresentation: (set) => (slides) =>
@@ -42,6 +43,10 @@ export const usePresentationStore = createStore({
           presentation.slideId = slideId;
           presentation.stepId = stepId;
         }),
+      presenterModeToggled: (set) => () =>
+        set(({ presentation }) => {
+          presentation.presenterMode = !presentation.presenterMode;
+        }),
     },
   },
 });
@@ -58,6 +63,8 @@ export const usePresentationKeybinds = () => {
       } else {
         document.body.requestFullscreen();
       }
+    } else if (event.key === "p") {
+      usePresentationStore.actions.presentation.presenterModeToggled();
     }
   };
   useEffect(() => {
@@ -95,31 +102,43 @@ export const usePresentationQueryParams = () => {
 };
 
 export const Presentation = () => {
+  const { slideId, slides, stepId } = usePresentationStore(
+    ({ presentation }) => ({
+      stepId: presentation.stepId,
+      slideId: presentation.slideId,
+      slides: presentation.slides,
+    })
+  );
+  const CurrentSlide = slides[slideId].component;
+  return <CurrentSlide stepId={stepId} />;
+};
+
+export const Preview = () => {
   const { slideId, slides } = usePresentationStore(({ presentation }) => ({
     slideId: presentation.slideId,
     slides: presentation.slides,
   }));
-  const CurrentSlide = slides[slideId].component;
-  return <CurrentSlide />;
+  const { component: CurrentSlide, steps } = slides[slideId];
+  return <CurrentSlide stepId={steps - 1} />;
 };
 
-export const useSteppedValue = (initialStep, values) => {
-  const { stepId } = usePresentationStore(({ presentation }) => ({
-    stepId: presentation.stepId,
+export const Notes = () => {
+  const { slideId, slides } = usePresentationStore(({ presentation }) => ({
+    slideId: presentation.slideId,
+    slides: presentation.slides,
   }));
+  const notes = slides[slideId].notes;
+  return notes ? list(notes) : null;
+};
 
+export const useSteppedValue = (stepId, initialStep, values) => {
   return values[Math.max(0, Math.min(stepId - initialStep, values.length - 1))];
 };
 
-export const simpleSlide = (steps) => ({
+export const simpleSlide = (steps, notes) => ({
   steps: steps.length,
-  component: () => {
-    const { stepId } = usePresentationStore(({ presentation }) => ({
-      stepId: presentation.stepId,
-    }));
-
-    return React.Children.toArray(steps.slice(0, stepId + 1));
-  },
+  component: ({ stepId }) => React.Children.toArray(steps.slice(0, stepId + 1)),
+  notes,
 });
 
 export const list = (items, style = "disc", depth = -1) => {

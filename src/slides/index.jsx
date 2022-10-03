@@ -1,5 +1,5 @@
-/* eslint-disable react/jsx-key */
 import dependencyInjection from "./dependency_injection";
+import extraReading from "./extra_reading";
 import opine from "./opine";
 import propDrilling from "./prop_drilling";
 import simpleProps from "./simple_props";
@@ -15,6 +15,7 @@ const slides = [
   propDrilling,
   dependencyInjection,
   opine,
+  extraReading,
 ];
 
 export default slides;

@@ -17,6 +17,10 @@ const opine = simpleSlide([
     [
       'Immer uses proxy "magic" to allow you to write immutable state updates with a more convenient mutable syntax',
     ],
+    "Manual render optimization using selector functions",
+    [
+      "Each time you call `useStore`, you must be careful to only select the state you need, to avoid unnecessary renders",
+    ],
   ]),
 ]);
 
