@@ -4,7 +4,7 @@ import { list, simpleSlide } from "../../presentation";
 const whyReactRenders = simpleSlide([
   <h1>{"Why React Renders"}</h1>,
   ...list([
-    "Subscribed state changes",
+    "Controlled state changes",
     "Parent renders (not because props changed)",
   ]),
 ]);

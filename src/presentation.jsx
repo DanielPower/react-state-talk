@@ -48,9 +48,9 @@ export const usePresentationStore = createStore({
 
 export const usePresentationKeybinds = () => {
   const handlePresentationKeyboardEvents = (event) => {
-    if (event.key === "ArrowRight") {
+    if (event.code === "ArrowRight" || event.code === "Space") {
       usePresentationStore.actions.presentation.incrementStep();
-    } else if (event.key === "ArrowLeft") {
+    } else if (event.code === "ArrowLeft") {
       usePresentationStore.actions.presentation.decrementStep();
     } else if (event.key === "f") {
       if (document.fullscreenElement) {
