@@ -1,11 +1,11 @@
 import React from "react";
-import { list, simpleSlide } from "../../presentation";
+import { list, simpleSlide } from "../presentation";
 
 const title = simpleSlide([
-  <h1>{"Dan's React State Talk"}</h1>,
+  <h1>{"React State Talk"}</h1>,
   ...list([
     "Why React Renders",
-    "Component State (useState)",
+    "Limitations of useState",
     "Dependency Injection (useContext)",
     "Atomic Global State (jotai, reactiveVars)",
     "Action / Reducer based Global State (Zustand, Redux)",

@@ -122,11 +122,11 @@ export const simpleSlide = (steps) => ({
   },
 });
 
-export const list = (items, style = "disc", depth = 0) => {
+export const list = (items, style = "disc", depth = -1) => {
   return Array.isArray(items)
     ? items.map((item) => list(item, style, depth + 1)).flat()
     : [
-        <li style={{ listStyleType: style, marginLeft: `${2 * depth}rem` }}>
+        <li style={{ listStyleType: style, marginLeft: `${3 * depth}rem` }}>
           {items}
         </li>,
       ];
