@@ -12,7 +12,11 @@ const title = simpleSlide(
       "Action / Reducer based Global State (Zustand, Redux)",
     ]),
   ],
-  ["Testing", "Testin123", ["testing 2345"]]
+  [
+    "Very briefly cover why React Renders",
+    "Then a quick overview of the different types of state management",
+    "Most of the talk will cover usage of Opine, Opine best practices, and optimizations",
+  ]
 );
 
 export default title;

@@ -3,5 +3,5 @@ const Child = React.memo(() => {
   useEffect(() => {
     renderCount.current += 1;
   });
-  return "Child renders: {renderCount.current + 1}";
+  return `Child renders: ${renderCount.current + 1}`;
 });

@@ -143,8 +143,10 @@ export const Notes = () => {
   return notes ? React.Children.toArray(list(notes)) : null;
 };
 
-export const useSteppedValue = (stepId, initialStep, values) => {
-  return values[Math.max(0, Math.min(stepId - initialStep, values.length - 1))];
+export const useSteppedValue = (stepId, values) => {
+  const relevantSteps = Object.keys(values).sort().reverse().map(Number);
+  const currentStepId = relevantSteps.find((step) => step <= stepId);
+  return values[currentStepId];
 };
 
 export const simpleSlide = (steps, notes) => ({
