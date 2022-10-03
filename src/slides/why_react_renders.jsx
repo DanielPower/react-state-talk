@@ -25,6 +25,8 @@ const whyReactRenders = simpleSlide(
     "Any state used by a hook is inlined in the component",
     "So hooks changing is really no different from controlled state changing",
     "Not really sure how context differs from state in this situation",
+    "Won't be going into detail on useContext, useState, useReducer in this presentation",
+    "But I will demo one common misconception about props",
   ]
 );
 

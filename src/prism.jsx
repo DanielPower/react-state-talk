@@ -37,7 +37,7 @@ export const CodeBlock = ({ children, language, highlightRanges }) => (
   <Highlight
     {...defaultProps}
     theme={theme}
-    code={children}
+    code={children.split("\n").slice(0, -1).join("\n")}
     language={language}
   >
     {({ className, style, tokens, getLineProps, getTokenProps }) => (

@@ -55,9 +55,7 @@ const simpleProps = {
       <>
         <h1>Why React Renders - Demo</h1>
         <h2>Parent</h2>
-        <CodeBlock width="auto" language="jsx">
-          {parent_code}
-        </CodeBlock>
+        <CodeBlock language="jsx">{parent_code}</CodeBlock>
         <h2>Child</h2>
         <CodeBlock language="jsx" highlightRanges={highlightRanges}>
           {child_code}
@@ -66,6 +64,10 @@ const simpleProps = {
       </>
     );
   },
+  notes: [
+    "Code snippets simplified to fit on slide",
+    "Full source code available",
+  ],
 };
 
 export default simpleProps;

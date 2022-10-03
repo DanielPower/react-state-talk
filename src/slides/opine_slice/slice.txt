@@ -1,0 +1,11 @@
+const webFlixSlice = {
+  initialState: {
+    favoriteMovies: [],
+  },
+  actions: {
+    addMovieToFavourites: (set) => (movie) =>
+      set(({ favouritemovies }) => {
+        favouriteMovies.push(movie);
+      }),
+  },
+};

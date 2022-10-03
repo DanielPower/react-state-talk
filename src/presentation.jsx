@@ -47,6 +47,14 @@ export const usePresentationStore = createStore({
         set(({ presentation }) => {
           presentation.presenterMode = !presentation.presenterMode;
         }),
+      queryParamsRead:
+        (set) =>
+        ({ slideId, stepId, presenterMode }) =>
+          set(({ presentation }) => {
+            presentation.slideId = slideId;
+            presentation.stepId = stepId;
+            presentation.presenterMode = presenterMode;
+          }),
     },
   },
 });
@@ -76,29 +84,33 @@ export const usePresentationKeybinds = () => {
 };
 
 export const usePresentationQueryParams = () => {
-  const { slideId, stepId } = usePresentationStore(({ presentation }) => ({
-    slideId: presentation.slideId,
-    stepId: presentation.stepId,
-  }));
+  const { slideId, stepId, presenterMode } = usePresentationStore(
+    ({ presentation }) => ({
+      slideId: presentation.slideId,
+      stepId: presentation.stepId,
+      presenterMode: presentation.presenterMode,
+    })
+  );
 
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
     const querySlideId = parseInt(queryParams.get("slide"));
-    if (!Number.isNaN(querySlideId)) {
-      const queryStepId = parseInt(queryParams.get("step"));
-      usePresentationStore.actions.presentation.jumpTo(
-        querySlideId,
-        Number.isNaN(queryStepId) ? 0 : queryStepId
-      );
-    }
+    const queryStepId = parseInt(queryParams.get("step"));
+    const queryPresenterMode = Boolean(queryParams.get("presenterMode"));
+    usePresentationStore.actions.presentation.queryParamsRead({
+      slideId: querySlideId || 0,
+      stepId: queryStepId || 0,
+      presenterMode: queryPresenterMode || false,
+    });
   }, []);
 
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
     queryParams.set("slide", slideId);
     queryParams.set("step", stepId);
+    queryParams.set("presenterMode", presenterMode);
     history.replaceState(null, null, `?${queryParams}`);
-  }, [slideId, stepId]);
+  }, [slideId, stepId, presenterMode]);
 };
 
 export const Presentation = () => {
@@ -128,7 +140,7 @@ export const Notes = () => {
     slides: presentation.slides,
   }));
   const notes = slides[slideId].notes;
-  return notes ? list(notes) : null;
+  return notes ? React.Children.toArray(list(notes)) : null;
 };
 
 export const useSteppedValue = (stepId, initialStep, values) => {
