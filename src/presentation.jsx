@@ -77,8 +77,13 @@ export const usePresentationQueryParams = () => {
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
     const querySlideId = parseInt(queryParams.get("slide"));
-    const queryStepId = parseInt(queryParams.get("step"));
-    usePresentationStore.actions.presentation.jumpTo(querySlideId, queryStepId);
+    if (!Number.isNaN(querySlideId)) {
+      const queryStepId = parseInt(queryParams.get("step"));
+      usePresentationStore.actions.presentation.jumpTo(
+        querySlideId,
+        Number.isNaN(queryStepId) ? 0 : queryStepId
+      );
+    }
   }, []);
 
   useEffect(() => {
@@ -117,9 +122,12 @@ export const simpleSlide = (steps) => ({
   },
 });
 
-export const list = (array, style = "disc") =>
-  array.map((value, index) => (
-    <li style={{ listStyleType: style }} value={index + 1}>
-      {value}
-    </li>
-  ));
+export const list = (items, style = "disc", depth = 0) => {
+  return Array.isArray(items)
+    ? items.map((item) => list(item, style, depth + 1)).flat()
+    : [
+        <li style={{ listStyleType: style, marginLeft: `${2 * depth}rem` }}>
+          {items}
+        </li>,
+      ];
+};

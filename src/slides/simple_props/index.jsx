@@ -41,11 +41,11 @@ const simpleProps = {
     return (
       <>
         <h1>Prop Changes</h1>
-        <p>Parent</p>
+        <h2>Parent</h2>
         <CodeBlock width="auto" language="jsx">
           {parent_code}
         </CodeBlock>
-        <p>Child</p>
+        <h2>Child</h2>
         <CodeBlock language="jsx">{child_code}</CodeBlock>
         <Parent memoize={memoize} />
       </>

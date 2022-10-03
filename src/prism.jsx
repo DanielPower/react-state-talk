@@ -8,6 +8,7 @@ const Pre = styled.pre`
   margin: 1em 0;
   padding: 0.5em;
   overflow: scroll;
+  font-size: 1.15rem;
 `;
 
 const Line = styled.div`
