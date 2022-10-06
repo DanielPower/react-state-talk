@@ -1,5 +1,5 @@
 import React from "react";
-import { list, simpleSlide } from "../presentation";
+import { list, simpleSlide } from "crispy-presentation";
 
 const extraReading = simpleSlide([
   <>

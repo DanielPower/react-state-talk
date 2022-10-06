@@ -1,0 +1,4 @@
+(title) => (state) => {
+  const task = state.tasks.find((task) => task.title === title);
+  task.status = "complete";
+}

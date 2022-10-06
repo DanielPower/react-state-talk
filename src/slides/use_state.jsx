@@ -1,4 +1,4 @@
-import { list, simpleSlide } from "../presentation";
+import { list, simpleSlide } from "crispy-presentation";
 
 const limitationsOfUseState = simpleSlide(
   [

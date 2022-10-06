@@ -6,7 +6,7 @@ import {
   usePresentationKeybinds,
   usePresentationQueryParams,
   usePresentationStore,
-} from "./presentation";
+} from "crispy-presentation";
 
 const DashboardGrid = styled.div`
   display: grid;

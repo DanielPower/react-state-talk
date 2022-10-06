@@ -1,11 +1,25 @@
-const webFlixSlice = {
+const taskSlice = {
   initialState: {
-    favoriteMovies: [],
+    tasks: [
+      { title: "Call Mom", 
+        priority: "high",
+        status: "incomplete" },
+    ],
   },
   actions: {
-    addMovieToFavourites: (set) => (movie) =>
-      set(({ favouritemovies }) => {
-        favouriteMovies.push(movie);
+    addTask: (set) => (title, priority) =>
+      set(({ taskSlice }) => {
+        taskSlice.tasks.push({ title, priority, status: "incomplete" });
+      }),
+    deleteTask: (set) => (title) =>
+      set(({ taskSlice }) => {
+        taskSlice.tasks = taskSlice.tasks.filter((task) => task.title !== title);
+      }),
+    completeTask: (set) => (title) =>
+      set(({ taskSlice }) => {
+        taskSlice.tasks
+          .find((task) => task.title === title)
+          .status = "complete";
       }),
   },
 };

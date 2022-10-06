@@ -1,4 +1,4 @@
-import { list, simpleSlide } from "../../presentation";
+import { list, simpleSlide } from "crispy-presentation";
 
 const opine = simpleSlide([
   <h1>Opine</h1>,
@@ -13,7 +13,7 @@ const opine = simpleSlide([
       "Shows a log of all actions that have been run",
       "Can inspect the diff caused by each action to determine how the store got into a bad state",
     ],
-    "Uses immer to simplify state mutations",
+    "Uses immer to simplify state transformations",
     [
       'Immer uses proxy "magic" to allow you to write immutable state updates with a more convenient mutable syntax',
     ],

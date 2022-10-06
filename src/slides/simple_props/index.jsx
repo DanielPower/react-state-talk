@@ -2,8 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import parent_code from "./parent.txt?raw";
 import child_code_1 from "./child_1.txt?raw";
 import child_code_2 from "./child_2.txt?raw";
-import { CodeBlock } from "../../prism";
-import { useSteppedValue } from "../../presentation";
+import { useSteppedValue, CodeBlock } from "crispy-presentation";
 
 const Parent = ({ memoize }) => {
   const [count, setCount] = useState(1);

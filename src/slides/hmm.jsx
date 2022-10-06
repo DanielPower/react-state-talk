@@ -1,4 +1,4 @@
-import { list, simpleSlide } from "../presentation";
+import { list, simpleSlide } from "crispy-presentation";
 
 const hmm = simpleSlide([
   <h1>Hmm... Thoughts Dan had while writing this</h1>,

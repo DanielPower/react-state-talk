@@ -1,5 +1,5 @@
 import React from "react";
-import { list, useSteppedValue } from "../presentation";
+import { list, useSteppedValue } from "crispy-presentation";
 
 const whyReactRenders = {
   steps: 8,
