@@ -1,4 +1,0 @@
-(state) => {
-  const task = state.tasks.find((task) => task.title === "Finish Metroid Dread");
-  task.status = "complete";
-}

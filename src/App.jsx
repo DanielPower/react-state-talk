@@ -38,32 +38,61 @@ const PresentationCell = styled.div`
   grid-column: 2;
 `;
 
+const SlideIcons = styled.div`
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+`;
+
 const App = () => {
-  const { presenterMode } = usePresentationStore(({ presentation }) => ({
-    presenterMode: presentation.presenterMode,
-  }));
+  const { presenterMode, slides, slideId } = usePresentationStore(
+    ({ presentation }) => ({
+      presenterMode: presentation.presenterMode,
+      slides: presentation.slides,
+      slideId: presentation.slideId,
+    })
+  );
   usePresentationKeybinds();
   usePresentationQueryParams();
-  return presenterMode ? (
-    <DashboardGrid>
-      <PresenterPresentationCell>
-        <Presentation />
-      </PresenterPresentationCell>
-      <PreviewCell>
-        <b>Preview</b>
-        <Preview />
-      </PreviewCell>
-      <NotesCell>
-        <b>Notes</b>
-        <Notes />
-      </NotesCell>
-    </DashboardGrid>
-  ) : (
-    <PresentationGrid>
-      <PresentationCell>
-        <Presentation />
-      </PresentationCell>
-    </PresentationGrid>
+  return (
+    <>
+      {presenterMode ? (
+        <DashboardGrid>
+          <PresenterPresentationCell>
+            <Presentation />
+          </PresenterPresentationCell>
+          <PreviewCell>
+            <b>Preview</b>
+            <Preview />
+          </PreviewCell>
+          <NotesCell>
+            <b>Notes</b>
+            <Notes />
+          </NotesCell>
+        </DashboardGrid>
+      ) : (
+        <PresentationGrid>
+          <PresentationCell>
+            <Presentation />
+          </PresentationCell>
+        </PresentationGrid>
+      )}
+      <SlideIcons>
+        {slides.map((_, index) => (
+          <b
+            key={index}
+            onClick={() => {
+              usePresentationStore.actions.presentation.jumpTo(index, 0);
+            }}
+          >
+            {slideId === index ? "O" : "o"}
+          </b>
+        ))}
+      </SlideIcons>
+    </>
   );
 };
 
