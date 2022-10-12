@@ -6,6 +6,7 @@ import limitationsOfUseState from "./use_state";
 import whyReactRenders from "./why_react_renders";
 import zustand from "./zustand";
 import jotai from "./jotai";
+import conclusion from "./conclusion";
 
 const slides = [
   title,
@@ -15,6 +16,7 @@ const slides = [
   ...dependencyInjection,
   ...jotai,
   ...zustand,
+  conclusion,
   extraReading,
 ];
 

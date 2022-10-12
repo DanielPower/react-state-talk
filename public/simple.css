@@ -401,7 +401,7 @@ th {
   font-weight: bold;
 }
 
-tr:nth-child(even) {
+tr {
   /* Set every other cell slightly darker. Improves readability. */
   background-color: var(--accent-bg);
 }

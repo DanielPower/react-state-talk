@@ -24,8 +24,11 @@ const contextIntro = simpleSlide([
         "Results in the deep nesting of providers shown on the previous image",
         "Can be difficult to manage. A context depending on another context must be its child",
       ],
-      "It is possible to create hooks to do manual render optimization on context with selectors",
-      ["Usage becomes similar to Zustand / Opine selectors"],
+      "There is currently an RFC proposal to allow selectors for contexts",
+      [
+        "There are also third party libraries with workarounds to implement this behaviour",
+        "No official solution exists yet",
+      ],
     ],
     "State lives in the React tree, so it is difficult to interact with outside of React",
     "Weak debugging tools",
