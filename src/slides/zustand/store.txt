@@ -1,0 +1,7 @@
+const useStore = zustand((set) => ({
+  cartItems: [],
+  addItemToCart: (item) => set((state) => ({
+    ...state,
+    cartItems: [...state.cartItems, item],
+  }),
+}));

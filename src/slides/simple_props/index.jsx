@@ -49,9 +49,9 @@ const simpleProps = {
     return (
       <>
         <h1>Why React Renders - Demo</h1>
-        <h2>Parent</h2>
+        <h4>Parent</h4>
         <CodeBlock language="jsx">{parent_code}</CodeBlock>
-        <h2>Child</h2>
+        <h4>Child</h4>
         <CodeBlock language="jsx" highlightRanges={highlightRanges}>
           {child_code}
         </CodeBlock>

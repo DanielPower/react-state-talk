@@ -1,0 +1,9 @@
+const CartItemsContext = createContext(null);
+const CartItemsProvider = ({ children }) => {
+  const [cartItems, setCartItems] = useState([]);
+  return (
+    <CartItemsContext.Provider value={{ cartItems, setCartItems }}>
+      {children}
+    </CartItemsContext>
+  );
+};

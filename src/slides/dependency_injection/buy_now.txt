@@ -1,0 +1,6 @@
+const BuyNowButton = ({ item }) => {
+  const { cartItems, setCartItems } = useContext(CartItemsContext);
+  return <button onClick={() => setCartItems([...cartItems, item])}>
+    Buy Now
+  </button>;
+}

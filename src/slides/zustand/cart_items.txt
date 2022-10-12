@@ -1,0 +1,4 @@
+const CartItemsIndicator = () => {
+  const cartItems = useStore((state) => state.cartItems);
+  return cartItems.length;
+}

@@ -6,16 +6,20 @@ const title = simpleSlide(
     <h1>{"React State Talk"}</h1>,
     ...list([
       "Why React Renders",
-      "Limitations of useState",
-      "Dependency Injection (useContext)",
-      "Atomic Global State (jotai, reactiveVars)",
-      "Action / Reducer based Global State (Zustand, Redux)",
+      "Methods of state management in React",
+      [
+        "Limitations of useState",
+        "Dependency Injection (useContext)",
+        "Atomic Global State (Jotai, Apollo Reactive Vars)",
+        "Monolithic Global State (Zustand, Redux)",
+      ],
+      "This talk discusses the differences between state management strategies",
+      "A separate upcoming talk will go into detail on our state management tool, Opine",
     ]),
   ],
   [
     "Very briefly cover why React Renders",
     "Then a quick overview of the different types of state management",
-    "Most of the talk will cover usage of Opine, Opine best practices, and optimizations",
   ]
 );
 

@@ -1,0 +1,5 @@
+const BuyNowButton = ({ item }) => {
+  return <button onClick={() => useStore.getState().addItemToCart(item)}>
+    Buy Now
+  </button>
+};

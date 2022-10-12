@@ -1,0 +1,2 @@
+const cartItemsAtom = atom([]);
+const cartItemsCountAtom = atom((get) => get(cartItemsAtom).length);

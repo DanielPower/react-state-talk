@@ -1,0 +1,4 @@
+const CartItemsIndicator = () => {
+  const { cartItemsCount } = useContext(cartItemsCountAtom);
+  return cartItemsCount;
+}

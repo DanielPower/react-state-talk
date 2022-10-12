@@ -1,0 +1,5 @@
+const BuyNowButton = ({ item }) => {
+  const [cartItems, setCartItems] = useAtom(cartItemsAtom);
+  return <button onClick={() => setCartItems([...cartItems, item])}>
+    Buy Now
+  </button>;
